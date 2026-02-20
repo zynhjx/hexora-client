@@ -1,10 +1,21 @@
 import './Landing.css';
 // ParticleCanvas import removed
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 function Landing() {
-  const [isAuthenticated, setIsAuthenticated] = useState(true); // Placeholder for auth state
+  // Sample backend output object
+  const sampleAuthOutput = {
+    user: {
+      id: 1,
+      username: "demoUser",
+      email: "demo@hexora.com"
+    },
+    token: "sample.jwt.token",
+    isAuthenticated: true // Toggle this to false to simulate logged out
+  };
+
+  const isAuthenticated = sampleAuthOutput.isAuthenticated;
 
   useEffect(() => {
     // Scroll reveal animations
@@ -81,7 +92,7 @@ function Landing() {
                 Learn real-world cybersecurity concepts through interactive challenges, quizzes, and hands-on puzzles. Build your skills at your own pace.
               </p>
               <div className="hero-buttons">
-                <Link to="/register" className="btn-primary">Get Started</Link>
+                <Link to={isAuthenticated ? "/dashboard" : "/register"} className="btn-primary">Get Started</Link>
                 <a href="#features" className="btn-outline">Learn More</a>
               </div>
             </div>
@@ -186,7 +197,7 @@ function Landing() {
               <span className="eyebrow">Ready to Begin?</span>
               <h2>Start Your Cybersecurity Journey Today</h2>
               <p>Explore interactive challenges and hands-on modules designed to teach you cybersecurity from the ground up.</p>
-              <Link to="/register" className="btn-primary">Get Started for Free</Link>
+              <Link to={isAuthenticated ? "/dashboard" : "/register"} className="btn-primary">Get Started for Free</Link>
             </div>
           </div>
         </section>

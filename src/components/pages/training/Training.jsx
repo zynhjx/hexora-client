@@ -1,5 +1,5 @@
 import './Training.css';
-import './sharedFilterStyle.css'
+import '../../shared/sharedFilterStyle.css'
 import { useState } from 'react';
 import { useNavigate, useSearchParams, useOutletContext } from 'react-router-dom';
 

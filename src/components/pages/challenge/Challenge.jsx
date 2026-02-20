@@ -1,5 +1,5 @@
 import './Challenge.css';
-import './sharedFilterStyle.css'
+import '../../shared/sharedFilterStyle.css'
 import { useState } from 'react';
 
 function Challenge() {
