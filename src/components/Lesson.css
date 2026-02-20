@@ -1,0 +1,213 @@
+.lesson {
+    padding: 1.5rem 2rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.lesson-header {
+    margin-bottom: 2rem;
+}
+
+.back-btn {
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    color: #00d4ff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.back-btn:hover {
+    background: rgba(0, 212, 255, 0.2);
+    border-color: rgba(0, 212, 255, 0.5);
+    transform: translateX(-2px);
+}
+
+.lesson-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.breadcrumb-module {
+    color: #a0b0ff;
+}
+
+.breadcrumb-separator {
+    color: #a0b0ff;
+}
+
+.breadcrumb-lesson {
+    color: #00d4ff;
+    font-weight: 600;
+}
+
+.lesson-header h1 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin: 0 0 1rem;
+    background: linear-gradient(135deg, #ffffff, #00d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.lesson-meta {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.meta-item {
+    color: #a0b0ff;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.completed-badge {
+    background: rgba(74, 222, 128, 0.15);
+    color: #4ade80;
+    border: 1px solid rgba(74, 222, 128, 0.3);
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+}
+
+.lesson-content {
+    margin-bottom: 2rem;
+}
+
+.content-card {
+    background: rgba(6, 10, 26, 0.5);
+    border: 1px solid rgba(0, 212, 255, 0.15);
+    border-radius: 16px;
+    padding: 2rem;
+    backdrop-filter: blur(12px);
+}
+
+.content-card h2 {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin: 0 0 1rem;
+}
+
+.content-card p {
+    color: #d0deff;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.placeholder-notice {
+    display: flex;
+    gap: 1.5rem;
+    background: rgba(0, 212, 255, 0.05);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.notice-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+}
+
+.notice-content h3 {
+    margin: 0 0 0.5rem;
+    color: #00d4ff;
+    font-size: 1.1rem;
+}
+
+.notice-content p {
+    margin: 0;
+    color: #a0b0ff;
+}
+
+.lesson-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0, 212, 255, 0.15);
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.action-right {
+    display: flex;
+    gap: 1rem;
+}
+
+.primary-btn {
+    background: #00d4ff;
+    color: #00111a;
+    border: 1px solid #00d4ff;
+    padding: 0.85rem 1.75rem;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.primary-btn:hover {
+    background: #00b8e6;
+    border-color: #00b8e6;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+}
+
+.secondary-btn {
+    background: rgba(0, 212, 255, 0.1);
+    color: #00d4ff;
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    padding: 0.85rem 1.75rem;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.secondary-btn:hover {
+    background: rgba(0, 212, 255, 0.2);
+    border-color: rgba(0, 212, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+    .lesson {
+        padding: 1rem;
+    }
+
+    .lesson-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .content-card {
+        padding: 1.5rem;
+    }
+
+    .lesson-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .action-right {
+        flex-direction: column;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        width: 100%;
+    }
+
+    .placeholder-notice {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
