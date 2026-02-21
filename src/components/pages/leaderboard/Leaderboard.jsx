@@ -184,7 +184,7 @@ function Leaderboard() {
                 </div> */}
             </div>
 
-            <div className="filter-section">
+            {/* <div className="filter-section">
                 <div className="filter-group">
                     <h3>Time Period</h3>
                     <div className="filter-buttons">
@@ -214,7 +214,7 @@ function Leaderboard() {
                         ))}
                     </div>
                 </div>
-            </div>
+            </div> */}
 
             {currentUser && (
                 <div className="user-position-card">
@@ -252,7 +252,7 @@ function Leaderboard() {
                 </div>
 
                 <div className="table-body">
-                    {leaderboardData.map((user, index) => (
+                    {leaderboardData.map((user) => (
                         <div key={user.userId} className={`table-row ${user.rank <= 3 ? 'top-rank' : ''} ${user.rank === currentUserRank ? 'current-user' : ''}`}>
                             <div className="col-rank">
                                 <div className="rank-badge">

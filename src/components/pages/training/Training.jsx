@@ -33,7 +33,11 @@ function Training() {
             lessons: 7,
             levelRequired: 1,
             progress: 60,
-            enrolled: true
+            enrolled: true,
+            rewards: [
+                { type: 'orbs', amount: 20, label: '+ 20 orbs' },
+                { type: 'exp', amount: 500, label: '+ 500 exp' }
+            ]
         },
         {
             id: 2,
@@ -44,7 +48,11 @@ function Training() {
             lessons: 6,
             levelRequired: 1,
             progress: 0,
-            enrolled: false
+            enrolled: false,
+            rewards: [
+                { type: 'orbs', amount: 20, label: '+ 20 orbs' },
+                { type: 'exp', amount: 500, label: '+ 500 exp' }
+            ]
         },
         {
             id: 3,
@@ -55,7 +63,11 @@ function Training() {
             lessons: 6,
             levelRequired: 1,
             progress: 0,
-            enrolled: false
+            enrolled: false,
+            rewards: [
+                { type: 'orbs', amount: 20, label: '+ 20 orbs' },
+                { type: 'exp', amount: 500, label: '+ 500 exp' }
+            ]
         },
         {
             id: 4,
@@ -66,7 +78,11 @@ function Training() {
             lessons: 7,
             levelRequired: 5,
             progress: 0,
-            enrolled: false
+            enrolled: false,
+            rewards: [
+                { type: 'orbs', amount: 20, label: '+ 30 orbs' },
+                { type: 'exp', amount: 500, label: '+ 750 exp' }
+            ]
         },
         {
             id: 5,
@@ -77,7 +93,11 @@ function Training() {
             lessons: 7,
             levelRequired: 5,
             progress: 0,
-            enrolled: false
+            enrolled: false,
+            rewards: [
+                { type: 'orbs', amount: 20, label: '+ 30 orbs' },
+                { type: 'exp', amount: 500, label: '+ 750 exp' }
+            ]
         },
         {
             id: 6,
@@ -88,7 +108,11 @@ function Training() {
             lessons: 7,
             levelRequired: 10,
             progress: 0,
-            enrolled: false
+            enrolled: false,
+            rewards: [
+                { type: 'orbs', amount: 20, label: '+ 40 orbs' },
+                { type: 'exp', amount: 500, label: '+ 1000 exp' }
+            ]
         },
         
     ];
@@ -204,6 +228,9 @@ function Training() {
                                     {module.difficulty}
                                 </span>
                                 <span className="lessons-badge">📚 {module.lessons} lessons</span>
+                                <span className="orbs-return-badge">+ <img src="/icons/orb.svg" alt="orb" className="inline-orb-icon" /> {module.rewards?.find(r => r.type === 'orbs')?.amount}</span>
+                                <span className="exp-return-badge">{module.rewards?.find(r => r.type === 'exp')?.label}</span>
+                                
                             </div>
                             {module.enrolled && module.progress > 0 && (
                                 <div className="module-progress">
@@ -216,7 +243,7 @@ function Training() {
                                 </div>
                             )}
                             <button 
-                                className={module.enrolled ? 'primary-btn' : 'secondary-btn'}
+                                className={module.enrolled ? 'training-primary-btn' : 'training-secondary-btn'}
                                 disabled={isLocked || (module.enrolled && module.progress === 100)}
                                 onClick={(e) => {
                                     e.stopPropagation();
@@ -235,7 +262,18 @@ function Training() {
                                     }
                                 }}
                             >
-                                {module.enrolled ? (module.progress > 0 ? 'Continue' : 'Start') : isLocked ? `Locked (Level ${module.levelRequired} required)` : `Unlock • ${getModulePrice(module.difficulty)} Orbs`}
+                                {module.enrolled
+                                    ? (module.progress > 0 ? 'Continue' : 'Start')
+                                    : isLocked
+                                        ? `Locked (Level ${module.levelRequired} required)`
+                                        : (
+                                            <span className="unlock-btn-content">
+                                                <span>Unlock for</span>
+                                                <img src="/icons/orb.svg" alt="orb" className="unlock-btn-orb" />
+                                                <span>{getModulePrice(module.difficulty)}</span>
+                                            </span>
+                                        )
+                                }
                             </button>
                         </div>
                     </div>

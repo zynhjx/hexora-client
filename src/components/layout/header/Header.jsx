@@ -5,9 +5,9 @@ function Header({ isOpen, setIsOpen }) {
 
 	// TODO: Replace with actual user data from backend/context
 	const user = {
-		orbs: 15999,
+		orbs: 100,
 		initials: 'KY',
-		level: 999,
+		level: 1,
 		rank: 'Observer'
 	};
 
@@ -26,15 +26,16 @@ function Header({ isOpen, setIsOpen }) {
 							<path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
 						</svg>
 					</button>
-					<Link to="/" className="app-header__logo" aria-label="Hexora home">
+					<Link to="/dashboard" className="app-header__logo" aria-label="Hexora home">
 					<img src="/hexora_name.png" alt="hexora logo name" />
 				</Link>
 				</div>
 
 				<div className="app-header__right">
 					<div className="app-header__orbs" aria-label="Orbs balance">
-						<svg className="orbs-icon" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-							<circle cx="12" cy="12" r="10" />
+						<svg className="orbs-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M12 0L22.3923 6V18L12 24L1.6077 18V6L12 0Z" fill="#00FFFF"/>
+							<path d="M21.0264 6.78809V17.2109L12 22.4229L2.97363 17.2109V6.78809L12 1.57617L21.0264 6.78809Z" fill="#00FFFF" stroke="black"/>
 						</svg>
 						<span className="orbs-value">{user.orbs.toLocaleString()}</span>
 						<button className="app-header__topup-btn" type="button" aria-label="Top up orbs" title="Top up orbs">

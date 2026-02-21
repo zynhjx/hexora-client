@@ -1,3 +1,22 @@
+
+/* Unlock button flex alignment */
+.unlock-btn-content {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.unlock-btn-orb {
+	width: 18px;
+	height: 18px;
+	display: inline-block;
+}
+/* Inline orb icon for badges */
+.inline-orb-icon {
+width: 14px;
+height: 14px;
+display: inline-block;
+}
 /* Searchbar styles */
 .training-searchbar-container {
 	width: 100%;
@@ -166,6 +185,34 @@
 	letter-spacing: 0.3px;
 }
 
+.orbs-return-badge {
+	padding: 0.35rem 0.75rem;
+	border-radius: 999px;
+	font-size: 0.75rem;
+	font-weight: 700;
+	background: rgba(0, 180, 150, 0.15);
+	color: #00b496;
+	border: 1px solid #00b496;
+	text-transform: uppercase;
+	letter-spacing: 0.3px;
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+}
+
+
+.exp-return-badge {
+	padding: 0.35rem 0.75rem;
+	border-radius: 999px;
+	font-size: 0.75rem;
+	font-weight: 700;
+	background: rgba(255, 120, 0, 0.15);
+	color: #ff7800;
+	border: 1px solid #ff7800;
+	text-transform: uppercase;
+	letter-spacing: 0.3px;
+}
+
 .module-title {
 	font-size: 1.25rem;
 	color: #ffffff;
@@ -187,6 +234,14 @@
 	flex-wrap: wrap;
 	color: #a0b0ff;
 	font-size: 0.85rem;
+}
+
+.module-meta > * {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 32px; /* standard height for all module-meta */
+	/* Remove flex-direction: column so children like .orbs-return-badge align horizontally */
 }
 
 .module-progress {
@@ -229,7 +284,7 @@
 	transition: width 0.5s ease;
 }
 
-.primary-btn {
+.training-primary-btn {
 	background: #00d4ff;
 	color: #00111a;
 	border: none;
@@ -241,14 +296,15 @@
 	font-size: 0.95rem;
 }
 
-.primary-btn:hover {
+.training-primary-btn:hover {
 	background: #00b8e6;
 	transform: translateY(-2px);
 	box-shadow: 0 5px 20px rgba(0, 212, 255, 0.4);
 }
 
-.secondary-btn {
-	background: transparent;
+.training-secondary-btn {
+	margin-top: 22px;
+	background: var(--bg-light);
 	color: #00d4ff;
 	border: 1px solid rgba(0, 212, 255, 0.5);
 	border-radius: 8px;
@@ -259,13 +315,13 @@
 	font-size: 0.95rem;
 }
 
-.secondary-btn:hover {
+.training-secondary-btn:hover {
 	background: rgba(0, 212, 255, 0.1);
 	border-color: #00d4ff;
 	color: #ffffff;
 }
 
-.secondary-btn:disabled {
+.training-secondary-btn:disabled {
 	cursor: not-allowed;
 	opacity: 0.6;
 	background: rgba(6, 10, 26, 0.4);
@@ -273,7 +329,7 @@
 	color: #a0b0ff;
 }
 
-.secondary-btn:disabled:hover {
+.training-secondary-btn:disabled:hover {
 	background: rgba(6, 10, 26, 0.4);
 	border-color: rgba(160, 176, 255, 0.4);
 	color: #a0b0ff;

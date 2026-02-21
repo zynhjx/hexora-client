@@ -8,17 +8,10 @@ function Dashboard() {
         name: 'Kyoru',
         level: 1,
         rank: 'Observer',
-        xp: 0
+        xp: 50
     };
 
-    // {
-    //         title: 'Cryptography 101',
-    //     description: 'Learn the fundamentals of encryption and cryptographic algorithms.',
-    //     progress: 60,
-    //     currentModule: 4,
-    //     totalModules: 8,
-    //     image: '/blue technology background pc 8k wallpaper.jpeg'
-    // }
+
 
     const latestModules = [
         // {
@@ -160,13 +153,13 @@ function Dashboard() {
 
     return (
         <div className="dashboard">
-            <div className="event-announcement">
+            {/* <div className="event-announcement">
                 <div className="event-badge">LIMITED EVENT</div>
                 <h3 className="event-title">STI College Puerto Princesa Business Exposition 2026</h3>
                 <p className="event-description">Test your cybersecurity knowledge, complete interactive challenges, and compete for exciting prizes in the Business Expo 2026.</p>
                 <span className="event-timer">May 20-22</span>
                 <span className="event-countdown">{eventCountdown}</span>
-            </div>
+            </div> */}
 
             <div className="dashboard-grid">
                 <section className="card greeting-card">
@@ -175,14 +168,8 @@ function Dashboard() {
                             <span style={{ color: "#a0b0ff" }}>Welcome back,</span> <span className="user-name">{user.name}</span>
                         </h1>
                         <p className="greeting-subtitle">Let’s keep your cybersecurity skills sharp today.</p>
-                        {/* <div className="greeting-actions">
-                            <button className="ghost-btn">Explore Training</button>
-                        </div> */}
-                        
+
                     </div>
-                    {/* <div className="bottom-btn">
-                        <button className="primary-btn">Resume Learning</button>
-                    </div> */}
                 </section>
 
                 <section className="card level-card">

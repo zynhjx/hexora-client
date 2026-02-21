@@ -3,6 +3,13 @@ import '../../shared/sharedFilterStyle.css'
 import { useState } from 'react';
 
 function Challenge() {
+        // Price per entry for each difficulty
+        const difficultyPrice = {
+            Easy: 20,
+            Medium: 30,
+            Hard: 40,
+            Expert: 50
+        };
     const [selectedDifficulty, setSelectedDifficulty] = useState('All');
     const [selectedStatus, setSelectedStatus] = useState('All');
     const [searchTerm, setSearchTerm] = useState('');
@@ -17,7 +24,6 @@ function Challenge() {
             image: '/challenge1.png',
             difficulty: 'Easy',
             reward: 100,
-            status: 'Available',
             description: 'Analyze suspicious emails and identify phishing indicators before they reach users.',
             timeLimit: '5 minutes'
         },
@@ -27,32 +33,62 @@ function Challenge() {
             image: '/empty.png',
             difficulty: 'Easy',
             reward: 100,
-            status: 'Available',
             description: 'Analyze suspicious emails and identify phishing indicators before they reach users.',
             timeLimit: '5 minutes'
         },
         {
             id: 3,
-            title: 'Spot the Phish',
+            title: 'Coming Soon',
             image: '/empty.png',
             difficulty: 'Easy',
             reward: 100,
-            status: 'Available',
             description: 'Analyze suspicious emails and identify phishing indicators before they reach users.',
             timeLimit: '5 minutes'
         },
         {
             id: 4,
-            title: 'Spot the Phish',
+            title: 'Coming Soon',
             image: '/empty.png',
-            difficulty: 'Easy',
+            difficulty: 'Medium',
             reward: 100,
-            status: 'Available',
             description: 'Analyze suspicious emails and identify phishing indicators before they reach users.',
             timeLimit: '5 minutes'
         },
-       
+        {
+            id: 5,
+            title: 'Coming Soon',
+            image: '/empty.png',
+            difficulty: 'Medium',
+            reward: 100,
+            description: 'Analyze suspicious emails and identify phishing indicators before they reach users.',
+            timeLimit: '5 minutes'
+        },
+        {
+            id: 6,
+            title: 'Coming Soon',
+            image: '/empty.png',
+            difficulty: 'Hard',
+            reward: 100,
+            description: 'Analyze suspicious emails and identify phishing indicators before they reach users.',
+            timeLimit: '5 minutes'
+        },
     ];
+    // User mock (should be replaced with actual user context)
+    const user = { level: 1 };
+
+    // Level requirements for each difficulty
+    const difficultyLevelReq = {
+        Easy: 1,
+        Medium: 3,
+        Hard: 7,
+        Expert: 12
+    };
+
+    // Check if user can enter challenge
+    const canEnterChallenge = (challenge) => {
+        const req = difficultyLevelReq[challenge.difficulty] || 1;
+        return user.level >= req;
+    };
 
     const filteredChallenges = challenges.filter(c => {
         const difficultyMatch = selectedDifficulty === 'All' || c.difficulty === selectedDifficulty;
@@ -124,30 +160,40 @@ function Challenge() {
             </div>
 
             <div className="challenges-grid">
-                {filteredChallenges.map(challenge => (
-                    <div key={challenge.id} className="challenge-card">
-                        <div className="challenge-image">
-                            <img src={challenge.image} alt="" />
-                        </div>
-                        <div className="challenge-content">
-                            <h3 className="challenge-title">{challenge.title}</h3>
-                            <div className="challenge-meta-top">
-                                <span 
-                                    className="difficulty-badge"
-                                    style={{ backgroundColor: getDifficultyColor(challenge.difficulty) }}
-                                >
-                                    {challenge.difficulty}
-                                </span>
-                                <span className="time-badge">⏱️ {challenge.timeLimit}</span>
-                                <span className="reward-badge">+ {challenge.reward} Points</span>
+                {filteredChallenges.map(challenge => {
+                    const canEnter = canEnterChallenge(challenge);
+                    return (
+                        <div key={challenge.id} className="challenge-card">
+                            <div className="challenge-image">
+                                <img src={challenge.image} alt="" />
                             </div>
-                            
-                            <button className="challenge-btn">
-                                {challenge.status === 'In Progress' ? 'Continue' : challenge.status === 'Completed' ? 'Review' : 'Start'}
-                            </button>
+                            <div className="challenge-content">
+                                <h3 className="challenge-title">{challenge.title}</h3>
+                                <div className="challenge-meta-top">
+                                    <span 
+                                        className="difficulty-badge"
+                                        style={{ backgroundColor: getDifficultyColor(challenge.difficulty) }}
+                                    >
+                                        {challenge.difficulty}
+                                    </span>
+                                    <span className="time-badge">⏱️ {challenge.timeLimit}</span>
+                                    <span className="reward-badge">+ {challenge.reward} Points</span>
+                                </div>
+                                <button 
+                                    className='challenge-btn'
+                                    disabled={!canEnter}
+                                >
+                                    {!canEnter ? `Locked (Level ${difficultyLevelReq[challenge.difficulty]} required)` : (
+                                        <span className="challenge-btn-content">
+                                            <img src="/icons/orb.svg" alt="orb" className="challenge-btn-orb" />
+                                            <span>{difficultyPrice[challenge.difficulty] || 20} to Enter</span>
+                                        </span>
+                                    )}
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    );
+                })}
             </div>
         </div>
     );

@@ -232,7 +232,7 @@
 /* Desktop */
 @media (min-width: 1280px) {
     .hero {
-        min-height: 840px;
+        min-height: 900px;
     }
 }
 

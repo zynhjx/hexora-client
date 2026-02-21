@@ -98,6 +98,7 @@
 }
 
 .card {
+	min-height: 296px;
 	background: rgba(6, 10, 26, 0.55);
 	border: 1px solid rgba(0, 212, 255, 0.12);
 	border-radius: 16px;
@@ -127,29 +128,31 @@
 	justify-content: flex-start;
 	position: relative;
 	overflow: hidden;
-	background-image: linear-gradient(135deg, rgba(0, 5, 27, 0.75), rgba(0, 5, 27, 0.55)),
-		url('/blue%20technology%20background%20pc%208k%20wallpaper.jpeg');
-	background-size: cover;
-	background-position: center;
+	padding: 2rem 2.5rem;
+	border-radius: 18px;
+	box-shadow: 0 6px 32px rgba(0, 212, 255, 0.08), 0 1.5px 6px rgba(75, 123, 255, 0.08);
+	background: linear-gradient(135deg, rgba(6, 10, 26, 0.92) 60%, rgba(0, 212, 255, 0.07) 100%);
 }
 
 .greeting-card::after {
-	content: '';
-	position: absolute;
 	inset: 0;
-	background: radial-gradient(circle at top left, rgba(0, 212, 255, 0.2), transparent 55%);
 	pointer-events: none;
+	opacity: 0.7;
 }
 
 .greeting-text {
-	position: relative;
 	z-index: 1;
+	padding-bottom: 1rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
 }
 
 .greeting-text h1 {
-	color: #ffffff;
-	font-size: 2rem;
-	margin: 0 0 0.4rem;
+	font-size: 2.3rem;
+	font-weight: 800;
+	letter-spacing: 0.5px;
+	margin-bottom: 0.3rem;
 }
 
 .user-name {
@@ -161,8 +164,10 @@
 }
 
 .greeting-subtitle {
-	color: #d0deff;
-	margin-bottom: 1rem;
+	font-size: 1.1rem;
+	font-weight: 500;
+	margin-bottom: 1.2rem;
+	letter-spacing: 0.2px;
 }
 
 .greeting-actions {
@@ -239,6 +244,7 @@
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 1rem;
+	flex: 1;
 }
 
 .level-divider {
@@ -251,8 +257,10 @@
 	background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(0, 212, 255, 0.08));
 	border: 1px solid rgba(0, 212, 255, 0.2);
 	border-radius: 14px;
-	padding: 1.25rem 1rem;
+	/* padding: 1.25rem 1rem; */
 	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	align-items: center;
 	transition: all 0.3s ease;
 	position: relative;
@@ -286,6 +294,10 @@
 	flex-direction: column;
 	gap: 0.25rem;
 	flex: 1;
+	padding: 1rem 1rem;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
 }
 
 .stat-label {
@@ -309,6 +321,8 @@
 
 .stats-card {
 	grid-column: span 3;
+	display: flex;
+	flex-direction: column;
 }
 
 .rank-pill {
