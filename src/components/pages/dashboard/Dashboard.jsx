@@ -1,14 +1,37 @@
 import './Dashboard.css';
+import FireIcon from '../../icons/FireIcon';
+import CircleProgress from '../../shared/CircleProgress';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 function Dashboard() {
+        // Sample completed modules
+    const completedModules = [
+        {
+            title: 'Network Basics',
+            description: 'Introduction to networking concepts and protocols.',
+            completedAt: '2026-02-20',
+        },
+        {
+            title: 'Hashing Fundamentals',
+            description: 'Learn about hashing algorithms and their applications.',
+            completedAt: '2026-02-21',
+        },
+        {
+            title: 'Packet Sniffer',
+            description: 'Explore packet sniffing tools and techniques.',
+            completedAt: '2026-02-22',
+        },
+        
+    ];
+
     const navigate = useNavigate();
     const user = {
         name: 'Kyoru',
         level: 1,
         rank: 'Observer',
-        xp: 50
+        xp: 50,
+        week_streak: 1
     };
 
 
@@ -31,16 +54,10 @@ function Dashboard() {
         
     ];
 
-    const stats = [
-        { label: 'Modules Completed', value: '0' },
-        { label: 'Score', value: '0' },
-        { label: 'Challenges Won', value: '0' },
-        { label: 'Orbs', value: '300' }
-    ];
 
     const activity = [
-        // { title: 'Completed “Network Basics” quiz', time: 'Today • 10:24 AM' },
-        // { title: 'Unlocked “Packet Sniffer” badge', time: 'Yesterday • 6:10 PM' },
+        { title: 'Completed “Network Basics” quiz', time: 'Today • 10:24 AM' },
+        { title: 'Unlocked “Packet Sniffer” badge', time: 'Yesterday • 6:10 PM' },
         // { title: 'Finished Module 3: Hashing', time: 'Yesterday • 2:45 PM' },
         // { title: 'Unlocked “Packet Sniffer” badge', time: 'Yesterday • 6:10 PM' },
         // { title: 'Finished Module 3: Hashing', time: 'Yesterday • 2:45 PM' },
@@ -170,6 +187,7 @@ function Dashboard() {
                         <p className="greeting-subtitle">Let’s keep your cybersecurity skills sharp today.</p>
 
                     </div>
+
                 </section>
 
                 <section className="card level-card">
@@ -216,21 +234,16 @@ function Dashboard() {
                     </div>
                 </section>
 
-                <section className="card stats-card">
+
+                <section className="card user-streak-card">
                     <div className="card-header">
-                        <h2>Your Stats</h2>
+                        <h2 className="streak-title">Weekly Streak</h2>
                     </div>
-                    <div className="stats-grid">
-                        {stats.map((stat) => (
-                            <div key={stat.label} className="mini-card">
-                                <div className="stat-content">
-                                    <span className="stat-value">{stat.value}</span>
-                                    <span className="stat-label">{stat.label}</span>
-                                </div>
-                            </div>
-                        ))}
+                    <div className="streak-card-content">
+                        
                     </div>
                 </section>
+                
 
                 <section className="card latest-card">
                     <div className="card-header">
@@ -351,6 +364,29 @@ function Dashboard() {
                                 <span className="leaderboard-score">{entry.score.toLocaleString()}</span>
                             </div>
                         ))}
+                    </div>
+                </section>
+
+                <section className="card completed-modules-card">
+                    <div className="card-header">
+                        <h2>Completed Modules</h2>
+                    </div>
+                    <div className="completed-modules-list">
+                        {completedModules.length > 0 ? (
+                            <ul className="completed-modules-ul">
+                                {completedModules.map((module, idx) => (
+                                    <li key={idx} className="completed-module-item">
+                                        <div className="completed-module-title">{module.title}</div>
+                                    </li>
+                                ))}
+                            </ul>
+                        ) : (
+                            <div className="empty-state">
+                                <div className="empty-state-icon">📚</div>
+                                <h3 className="empty-state-title">No Modules Completed</h3>
+                                <p className="empty-state-description">Complete your first module to see it here.</p>
+                            </div>
+                        )}
                     </div>
                 </section>
 
