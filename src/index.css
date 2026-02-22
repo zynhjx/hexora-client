@@ -1,5 +1,3 @@
-
-
 * {
     margin: 0;
     padding: 0;
@@ -7,8 +5,11 @@
 }
 
 :root {
-    --bg-dark: #00051b;
+    --bg-dark: rgb(0, 5, 27);
+    /* dark in hex #00051b; */
+
     --bg-light: rgb(9, 15, 39);
+    --bg-light-bg: rgb(9, 15, 39, 0.55)
 }
 
 html {
