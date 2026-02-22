@@ -1,5 +1,6 @@
 import './Dashboard.css';
 import FireIcon from '../../icons/FireIcon';
+import FireIconFilled from '../../icons/FireIconFilled';
 import CircleProgress from '../../shared/CircleProgress';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
@@ -31,7 +32,9 @@ function Dashboard() {
         level: 1,
         rank: 'Observer',
         xp: 50,
-        week_streak: 1
+        week_streak: 1,
+        streak_pts: 10,
+        streak_active: false
     };
 
 
@@ -235,12 +238,36 @@ function Dashboard() {
                 </section>
 
 
-                <section className="card user-streak-card">
+                <section className={`card user-streak-card${user.streak_active ? ' golded' : ''}`}>
                     <div className="card-header">
-                        <h2 className="streak-title">Weekly Streak</h2>
+                        <h2 id='streak-title'>Weekly Streak</h2>
+                        <span className="streak-pill">{user.streak_active ? "Active" : "Inactive"}</span>
                     </div>
                     <div className="streak-card-content">
-                        
+                        <div className="streak-content-container">
+                            <div className="fire-icon">
+                                {/* Show only one fire icon at a time. Change 'showFilled' to true for colored fire. */}
+                                {user.streak_active ? (
+                                    <FireIconFilled style={{ width: 96, height: 96 }} />
+                                ) : (
+                                    <FireIcon style={{ width: 96, height: 96 }} />
+                                )}
+                            </div>
+                            <div className='streak-info'>
+                                <p className='streak-number streak-title'>
+                                    <span className="streak-gradient-text">
+                                        {user.week_streak} week{user.week_streak > 1 ? 's' : ''}
+                                    </span>
+                                </p>
+                                <div>
+                                    <span className={`streak-progress-info ${user.streak_active ? "golded" : '' }`}>{user.streak_pts}/30 Streak pts</span>
+                                </div>
+                                <div className="progress-wrapper">
+                                    <div className='progress' style={{width: `${Math.min(100, Math.round((user.streak_pts / 30) * 100))}%`}}></div>
+                                </div>
+                                {/* <span style={{color:'#a0b0ff', fontSize:'0.85rem', marginTop:'0.2rem'}}>Keep your streak alive for bonus rewards!</span> */}
+                            </div>
+                        </div>
                     </div>
                 </section>
                 

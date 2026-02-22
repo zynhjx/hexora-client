@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export default function FireIcon({ className = '', style = {}, stroke = '#ff7e47', strokeWidth = 1, ...props }) {
+export default function FireIcon({ className = '', style = {}, ...props }) {
   return (
     <svg
       className={className}
