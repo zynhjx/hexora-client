@@ -13,7 +13,7 @@ function Leaderboard() {
             rank: 1,
             userId: 'user_001',
             name: 'Cipher Master',
-            avatar: '🔐',
+
             points: 12500,
             level: 25,
             challenges: 48,
@@ -24,7 +24,7 @@ function Leaderboard() {
             rank: 2,
             userId: 'user_002',
             name: 'Network Guardian',
-            avatar: '🛡️',
+
             points: 11800,
             level: 24,
             challenges: 45,
@@ -35,7 +35,7 @@ function Leaderboard() {
             rank: 3,
             userId: 'user_003',
             name: 'Security Sentinel',
-            avatar: '⚔️',
+
             points: 11200,
             level: 23,
             challenges: 42,
@@ -46,7 +46,7 @@ function Leaderboard() {
             rank: 4,
             userId: 'user_004',
             name: 'Exploit Engineer',
-            avatar: '💣',
+
             points: 10950,
             level: 22,
             challenges: 41,
@@ -57,7 +57,7 @@ function Leaderboard() {
             rank: 5,
             userId: 'user_005',
             name: 'Threat Analyst',
-            avatar: '🔍',
+
             points: 10500,
             level: 21,
             challenges: 39,
@@ -68,7 +68,7 @@ function Leaderboard() {
             rank: 6,
             userId: 'user_006',
             name: 'Code Breaker',
-            avatar: '🧠',
+
             points: 9800,
             level: 20,
             challenges: 36,
@@ -79,7 +79,7 @@ function Leaderboard() {
             rank: 7,
             userId: 'user_007',
             name: 'Packet Sniffer',
-            avatar: '📦',
+
             points: 9200,
             level: 19,
             challenges: 33,
@@ -90,7 +90,7 @@ function Leaderboard() {
             rank: 8,
             userId: 'user_008',
             name: 'Reverse Engineer',
-            avatar: '⚙️',
+
             points: 8750,
             level: 18,
             challenges: 31,
@@ -101,7 +101,7 @@ function Leaderboard() {
             rank: 9,
             userId: 'user_009',
             name: 'Forensic Pro',
-            avatar: '🔬',
+
             points: 8200,
             level: 17,
             challenges: 28,
@@ -112,7 +112,7 @@ function Leaderboard() {
             rank: 10,
             userId: 'user_010',
             name: 'System Admin',
-            avatar: '👨‍💻',
+
             points: 7600,
             level: 16,
             challenges: 25,
@@ -123,7 +123,7 @@ function Leaderboard() {
             rank: 11,
             userId: 'user_011',
             name: 'Bug Hunter',
-            avatar: '🐛',
+
             points: 7100,
             level: 15,
             challenges: 22,
@@ -134,7 +134,7 @@ function Leaderboard() {
             rank: 12,
             userId: 'user_012',
             name: 'Secure Dev',
-            avatar: '🛠️',
+
             points: 6500,
             level: 14,
             challenges: 19,
@@ -168,53 +168,10 @@ function Leaderboard() {
                     <h1>Leaderboard</h1>
                     <p className="leaderboard-subtitle">Compete with other cybersecurity enthusiasts</p>
                 </div>
-                {/* <div className="leaderboard-stats">
-                    <div className="stat-box">
-                        <span className="stat-number">{stats.totalUsers.toLocaleString()}</span>
-                        <span className="stat-text">Total Users</span>
-                    </div>
-                    <div className="stat-box">
-                        <span className="stat-number">{stats.activeThisWeek}</span>
-                        <span className="stat-text">Active This Week</span>
-                    </div>
-                    <div className="stat-box">
-                        <span className="stat-number">{stats.avgPoints.toLocaleString()}</span>
-                        <span className="stat-text">Avg Points</span>
-                    </div>
-                </div> */}
+                
             </div>
 
-            {/* <div className="filter-section">
-                <div className="filter-group">
-                    <h3>Time Period</h3>
-                    <div className="filter-buttons">
-                        {timePeriods.map(period => (
-                            <button
-                                key={period}
-                                className={`filter-btn ${selectedTimePeriod === period ? 'active' : ''}`}
-                                onClick={() => setSelectedTimePeriod(period)}
-                            >
-                                {period}
-                            </button>
-                        ))}
-                    </div>
-                </div>
-
-                <div className="filter-group">
-                    <h3>Category</h3>
-                    <div className="filter-buttons">
-                        {categories.map(category => (
-                            <button
-                                key={category}
-                                className={`filter-btn ${selectedCategory === category ? 'active' : ''}`}
-                                onClick={() => setSelectedCategory(category)}
-                            >
-                                {category}
-                            </button>
-                        ))}
-                    </div>
-                </div>
-            </div> */}
+            
 
             {currentUser && (
                 <div className="user-position-card">
@@ -246,8 +203,7 @@ function Leaderboard() {
                     <div className="col-rank">Rank</div>
                     <div className="col-user">User</div>
                     <div className="col-level">Level</div>
-                    <div className="col-challenges">Challenges</div>
-                    <div className="col-modules">Modules</div>
+                    <div className="col-challenges">Attempts</div>
                     <div className="col-points">Points</div>
                 </div>
 
@@ -262,7 +218,6 @@ function Leaderboard() {
                             </div>
                             <div className="col-user">
                                 <div className="user-info">
-                                    <span className="user-avatar">{user.avatar}</span>
                                     <span className="user-name">{user.name}</span>
                                 </div>
                             </div>
@@ -272,9 +227,9 @@ function Leaderboard() {
                             <div className="col-challenges">
                                 <span>{user.challenges}</span>
                             </div>
-                            <div className="col-modules">
+                            {/* <div className="col-modules">
                                 <span>{user.modules}</span>
-                            </div>
+                            </div> */}
                             <div className="col-points">
                                 <span className="points-value">{user.points.toLocaleString()}</span>
                             </div>

@@ -8,21 +8,21 @@ import { useState, useEffect } from 'react';
 function Dashboard() {
         // Sample completed modules
     const completedModules = [
-        {
-            title: 'Network Basics',
-            description: 'Introduction to networking concepts and protocols.',
-            completedAt: '2026-02-20',
-        },
-        {
-            title: 'Hashing Fundamentals',
-            description: 'Learn about hashing algorithms and their applications.',
-            completedAt: '2026-02-21',
-        },
-        {
-            title: 'Packet Sniffer',
-            description: 'Explore packet sniffing tools and techniques.',
-            completedAt: '2026-02-22',
-        },
+        // {
+        //     title: 'Network Basics',
+        //     description: 'Introduction to networking concepts and protocols.',
+        //     completedAt: '2026-02-20',
+        // },
+        // {
+        //     title: 'Hashing Fundamentals',
+        //     description: 'Learn about hashing algorithms and their applications.',
+        //     completedAt: '2026-02-21',
+        // },
+        // {
+        //     title: 'Packet Sniffer',
+        //     description: 'Explore packet sniffing tools and techniques.',
+        //     completedAt: '2026-02-22',
+        // },
         
     ];
 
@@ -41,6 +41,7 @@ function Dashboard() {
 
     const latestModules = [
         // {
+        //     id: 1,
         //     title: 'Cryptography 101',
         //     description: 'Learn the fundamentals of encryption and cryptographic algorithms.',
         //     progress: 60,
@@ -48,19 +49,20 @@ function Dashboard() {
         //     totalModules: 8
         // },
         // {
+        //     id: 1,
         //     title: 'Cryptography 101',
         //     description: 'Learn the fundamentals of encryption and cryptographic algorithms.',
         //     progress: 60,
         //     currentModule: 4,
         //     totalModules: 8
         // },
-        
+
     ];
 
 
     const activity = [
-        { title: 'Completed “Network Basics” quiz', time: 'Today • 10:24 AM' },
-        { title: 'Unlocked “Packet Sniffer” badge', time: 'Yesterday • 6:10 PM' },
+        // { title: 'Completed “Network Basics” quiz', time: 'Today • 10:24 AM' },
+        // { title: 'Unlocked “Packet Sniffer” badge', time: 'Yesterday • 6:10 PM' },
         // { title: 'Finished Module 3: Hashing', time: 'Yesterday • 2:45 PM' },
         // { title: 'Unlocked “Packet Sniffer” badge', time: 'Yesterday • 6:10 PM' },
         // { title: 'Finished Module 3: Hashing', time: 'Yesterday • 2:45 PM' },
@@ -129,15 +131,6 @@ function Dashboard() {
         }
         return undefined;
     }, [challenges.length]);
-
-    useEffect(() => {
-        if (latestModules.length > 1) {
-            const interval = setInterval(() => {
-                setCurrentModuleIndex((prevIndex) => (prevIndex + 1) % latestModules.length);
-            }, 5000);
-            return () => clearInterval(interval);
-        }
-    }, [latestModules.length]);
 
     useEffect(() => {
         const eventStart = new Date('2026-05-20T00:00:00');
@@ -277,45 +270,16 @@ function Dashboard() {
                         <h2>Continue Learning</h2>
                         <button className="ghost-btn small" onClick={() => navigate('/training')}>View All</button>
                     </div>
-                    <div className="latest-modules-grid">
+                    <div className="latest-modules-container">
                         {latestModules.length > 0 ? (
-                            <>
-                                <div className="module-carousel-container">
-                                    <div className="module-carousel">
-                                        <div className="carousel-track" style={{ transform: `translateX(-${currentModuleIndex * 100}%)` }}>
-                                            {latestModules.map((module, index) => (
-                                                <div key={index} className="carousel-slide" onClick={() => navigate(`/training`, { state: { moduleId: index } })}>
-                                                    <div className="carousel-module">
-                                                        <h3>{module.title}</h3>
-                                                        <p className="module-desc">{module.description}</p>
-                                                        <div className="module-progress-info">
-                                                            <div className="progress-header">
-                                                                <span className="progress-label">Overall Progress</span>
-                                                                <span className="progress-percentage">{module.progress}%</span>
-                                                            </div>
-                                                            <div className="progress-bar">
-                                                                <div className="progress-fill" style={{ width: `${module.progress}%` }} />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                    {latestModules.length > 1 && (
-                                        <div className="carousel-indicators">
-                                            {latestModules.map((_, index) => (
-                                                <button
-                                                    key={index}
-                                                    className={`indicator ${index === currentModuleIndex ? 'active' : ''}`}
-                                                    onClick={() => setCurrentModuleIndex(index)}
-                                                    aria-label={`Go to module ${index + 1}`}
-                                                />
-                                            ))}
-                                        </div>
-                                    )}
-                                </div>
-                            </>
+                            <ul className="latest-modules-list">
+                                {latestModules.map((module, idx) => (
+                                    <li key={idx} className="latest-module simple">
+                                        <span className="module-title">{module.title}</span>
+                                        <button className="ghost-btn" onClick={() => navigate('/training')}>Continue</button>
+                                    </li>
+                                ))}
+                            </ul>
                         ) : (
                             <div className="empty-state">
                                 <div className="empty-state-icon">📚</div>

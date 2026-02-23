@@ -33,7 +33,7 @@ function Training() {
             lessons: 7,
             levelRequired: 1,
             progress: 60,
-            enrolled: true,
+            enrolled: false,
             rewards: [
                 { type: 'orbs', amount: 20, label: '+ 20 orbs' },
                 { type: 'exp', amount: 500, label: '+ 500 exp' }
